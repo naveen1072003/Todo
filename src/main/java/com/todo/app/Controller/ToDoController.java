@@ -38,9 +38,10 @@ public class ToDoController {
     }
 
     @PostMapping("/addTasks")
-    public String addTasks(@RequestBody ToDo toDo){
+    public String addTasks(@ModelAttribute ToDo toDo){
+        System.out.println(toDo);
         service.saveOrUpdateItem(toDo);
-        return "added";
+        return "Added successfully!";
     }
 
     @PostMapping("/updateTaskStatus/{id}")

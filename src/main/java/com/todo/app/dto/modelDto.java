@@ -15,6 +15,4 @@ public class modelDto {
     private String id;
     private String title;
     private String status;
-
-
 }
