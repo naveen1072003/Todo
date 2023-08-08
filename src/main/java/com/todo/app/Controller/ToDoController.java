@@ -21,10 +21,10 @@ public class ToDoController {
     @Autowired
     private ToDoService service;
 
-    @RequestMapping("/index")
-    public String startPage(){
-        return "start";
-    }
+//    @RequestMapping("/index")
+//    public String startPage(){
+//        return "start";
+//    }
 
     @GetMapping("/getAllTasks")
     public ResponseEntity<List<ToDo>> getAllTasks(){
