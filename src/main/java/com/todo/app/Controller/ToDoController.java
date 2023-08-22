@@ -19,17 +19,25 @@ import java.util.List;
 public class ToDoController {
 
     @Autowired
-    private ToDoService service;
+    ToDoService service;
 
     @RequestMapping("/index")
     public String startPage(){
         return "start";
     }
 
+    @PostMapping("/addTasks")
+    public String addTasks(ToDo toDo){
+        System.out.println(toDo.toString());
+        service.saveOrUpdateItem(toDo);
+        return "redirect:/api/v1/start";
+    }
     @GetMapping("/getAllTasks")
-    public ResponseEntity<List<ToDo>> getAllTasks(){
+    public String getAllTasks(Model model){
            List<ToDo> toDos = service.getAllToDoTasks();
-           return new ResponseEntity<>(toDos, HttpStatus.OK);
+           model.addAttribute("list",toDos);
+           System.out.println(toDos.toString());
+           return "start";
     }
 
     @GetMapping("/getTask/{id}")
@@ -37,12 +45,7 @@ public class ToDoController {
         return new ResponseEntity<>(service.getToDoTaskById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/addTasks")
-    public String addTasks(@ModelAttribute ToDo toDo){
-        System.out.println(toDo);
-        service.saveOrUpdateItem(toDo);
-        return "Added successfully!";
-    }
+
 
     @PostMapping("/updateTaskStatus/{id}")
     public String updateTaskStatus(@PathVariable long id){

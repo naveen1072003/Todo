@@ -18,44 +18,24 @@ public class ToDo {
     long id;
 
     @Column
-    String title;
-
-    @Column
     String content;
 
     @Column
     String status;
-    public void setId(long id) {
-        this.id = id;
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getContent() {
         return content;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setId(long id) {
+        this.id = id;
     }
-
-    @Override
-    public String toString() {
-        return "ToDo{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", status='" + status + '\'' +
-                '}';
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public long getId() {
         return id;
-    }
-
-    public String getTitle() {
-        return title;
     }
 
     public String getStatus() {
@@ -64,5 +44,14 @@ public class ToDo {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "ToDo{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

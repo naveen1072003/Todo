@@ -15,7 +15,7 @@ public class ToDoService {
     @Autowired
     ToDoRepository repo;
     public List<ToDo> getAllToDoTasks(){
-        return new ArrayList<>(repo.findAll());
+        return repo.findAll();
     }
     public ToDo getToDoTaskById(long id){
         return repo.findById(id).get();
@@ -30,6 +30,7 @@ public class ToDoService {
 
     public String saveOrUpdateItem(ToDo toDo) {
         System.out.println(toDo.toString());
+        toDo.setStatus("In progress");
         repo.save(toDo);
         return "Task Saved!";
     }
