@@ -27,7 +27,7 @@ public class ToDoController {
 //    }
 
     @PostMapping("/addTasks")
-    public String addTasks(ToDo toDo){
+    public String addTasks(@RequestBody ToDo toDo){
         System.out.println(toDo.toString());
         service.saveOrUpdateItem(toDo);
         return "redirect:/api/v1/start";

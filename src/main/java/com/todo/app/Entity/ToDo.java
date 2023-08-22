@@ -18,6 +18,8 @@ public class ToDo {
     long id;
 
     @Column
+    private String title;
+    @Column
     String content;
 
     @Column
