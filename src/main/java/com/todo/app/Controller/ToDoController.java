@@ -21,10 +21,10 @@ public class ToDoController {
     @Autowired
     ToDoService service;
 
-    @RequestMapping("/index")
-    public String startPage(){
-        return "start";
-    }
+//    @RequestMapping("/index")
+//    public String startPage(){
+//        return "start";
+//    }
 
     @PostMapping("/addTasks")
     public String addTasks(ToDo toDo){
